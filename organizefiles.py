@@ -23,7 +23,12 @@ class OrganizationHandler(FileSystemEventHandler):
                 _key = getKey(mappings, filename)
                 toDestination = mappings[_key]
                 fromFile = directory + "\\" + filename
-                shutil.move(fromFile, toDestination)
+                try:
+                    shutil.move(fromFile, toDestination)
+                    pass
+                except Exception:
+                    pass
+                
 
                         
 # this method checks if a string contains a key of a dictionary
