@@ -10,9 +10,9 @@ directory = "C:\\Users\\matth\\Documents"
 # these are the mappings for the program
 # if a file contains the key, then it is moved to the corresponding value
 mappings = {
-    "4F00": "C:\\Users\\matth\\Documents\\School\\COSC 4F00",
-    "3P97": "C:\\Users\\matth\\Documents\\School\\COSC 3P97",
-    "2P95": "C:\\Users\\matth\\Documents\\School\\COSC 2P95"
+    "4F00": "C:\\Users\\matth\\Documents\\School\\COSC 4F00\\",
+    "3P97": "C:\\Users\\matth\\Documents\\School\\COSC 3P97\\",
+    "2P95": "C:\\Users\\matth\\Documents\\School\\COSC 2P95\\"
 }
 
 # this class handles what happens when a file is modified in a directory
@@ -21,7 +21,9 @@ class OrganizationHandler(FileSystemEventHandler):
         for filename in os.listdir(directory):
             if (stringContainsKey(mappings, filename)):
                 _key = getKey(mappings, filename)
-                # shutil.move(filename, mappings[_key])
+                toDestination = mappings[_key]
+                fromFile = directory + "\\" + filename
+                shutil.move(fromFile, toDestination)
 
                         
 # this method checks if a string contains a key of a dictionary
