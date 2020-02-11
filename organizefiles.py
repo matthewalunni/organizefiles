@@ -5,6 +5,7 @@ import shutil
 
 configurations = [
     {
+
     "directory": "C:\\Users\\matth\\Documents",
     "mappings": {
         "4F00": "C:\\Users\\matth\\Documents\\School\\COSC 4F00\\",
